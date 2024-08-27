@@ -1,7 +1,6 @@
 {
   "name": "task_manager",
   "version": "1.0.0",
-  "description": "",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -24,7 +23,10 @@
     "jsonwebtoken": "^9.0.2",
     "method-override": "^3.0.0",
     "mongoose": "^8.5.2",
+    "node": "^22.7.0",
     "nodemon": "^3.1.4",
     "path": "^0.12.7"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
