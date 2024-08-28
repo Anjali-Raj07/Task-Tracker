@@ -11,8 +11,6 @@ router.put('/updateTask/:taskId', adminMiddleware, taskController.updateTask);
 
 router.delete('/deleteTask/:taskId', adminMiddleware, taskController.deleteTask);
 
-router.get('/tasks/:taskId', adminMiddleware, taskController.getTaskById);
-
 router.put('/updateStatus/:id', taskController.editStatus)
 
 

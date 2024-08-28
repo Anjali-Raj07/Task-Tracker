@@ -58,33 +58,7 @@ const deleteTask = async (req, res) => {
         res.status(500).json({ message: 'Internal Server Error' });
     }
 };
-const getAllTasks = async (req, res) => {
-    try {
-        const tasks = await taskService.getAllTasks();
-        res.render('manager', { tasks });
-    } catch (err) {
-        console.error('Error fetching tasks:', err);
-        res.status(500).send('Server error');
-    }
-};
 
-const getTaskById = async (req, res) => {
-    const { taskId } = req.params;
-
-    try {
-        const task = await taskService.getTaskById(taskId);
-        const users = await userService.getAllUsers();
-
-        if (task) {
-            res.render('updateTask', { task, users });
-        } else {
-            res.status(404).json({ message: 'Task not found hi' });
-        }
-    } catch (err) {
-        console.error('Error fetching task by ID:', err);
-        res.status(500).json({ message: 'Internal Server Error' });
-    }
-};
 
 const editStatus = async (req, res) => {
     const { id: taskId } = req.params;
@@ -107,7 +81,5 @@ module.exports = {
     createNewTask,
     updateTask,
     deleteTask,
-    getAllTasks,
-    getTaskById,
     editStatus
 };

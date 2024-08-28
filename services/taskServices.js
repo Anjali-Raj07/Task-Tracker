@@ -54,22 +54,7 @@ const deleteTask = async (taskId) => {
         throw err;
     }
 };
-const getAllTasks = async () => {
-    try {
-        return await Task.find(); 
-    } catch (err) {
-        console.error('Error fetching tasks in task service:', err);
-        throw err;
-    }
-};
-const getTaskById = async (taskId) => {
-    try {
-        return await Task.findById(taskId);
-    } catch (err) {
-        console.error('Error fetching task by ID in task service:', err);
-        throw err;
-    }
-};
+
 const updateTaskStatus = async (taskId, status) => {
     try {
         const updatedTask = await Task.findByIdAndUpdate(taskId, { status }, { new: true });
@@ -87,8 +72,6 @@ module.exports = {
     createTask,
     updateTask,
     deleteTask,
-    getAllTasks,
-    getTaskById,
     updateTaskStatus
 };
 
