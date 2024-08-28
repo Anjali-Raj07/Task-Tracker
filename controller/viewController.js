@@ -91,8 +91,42 @@ const renderUpdateTaskPage = async (req, res) => {
     }
 };
 
+const renderCheckStatusPage = async (req, res) => {
+    try {
+        const tasks = await Task.aggregate([
+            {
+                $project: {
+                    title: 1,
+                    status: 1 
+                }
+            },
+            {
+                $group: {
+                    _id: "$status",
+                    tasks: {
+                        $push: {
+                            title: "$title"
+                        }
+                    }
+                }
+            }
+        ]);
 
-  
+        const groupedTasks = {
+            todo: tasks.find(task => task._id === 'To-Do')?.tasks || [],
+            pending: tasks.find(task => task._id === 'Pending')?.tasks || [],
+            completed: tasks.find(task => task._id === 'Completed')?.tasks || []
+        };
+
+        console.log('Grouped tasks by status:', groupedTasks);
+
+        res.render('checkStatus', groupedTasks);
+    } catch (error) {
+        console.error('Error rendering check status page:', error);
+        res.status(500).send('Server Error');
+    }
+};
+
 
 module.exports = {
     renderRegisterPage,
@@ -101,5 +135,6 @@ module.exports = {
     renderManagerPage,
     renderCreateTaskPage,
     renderUpdateTaskPage,
-    renderEditStatusPage
+    renderEditStatusPage,
+    renderCheckStatusPage
 };

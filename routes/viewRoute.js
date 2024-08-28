@@ -11,7 +11,8 @@ router.get('/employee/:id',authMiddleware,viewController.renderEmployeePage);
 router.get('/manager',adminMiddleware,viewController.renderManagerPage);
 router.get('/createTask',adminMiddleware,viewController.renderCreateTaskPage);
 router.get('/updateTask/:id', adminMiddleware,viewController.renderUpdateTaskPage);
-router.get('/editStatus/:id',authMiddleware, viewController.renderEditStatusPage)
+router.get('/editStatus/:id',authMiddleware, viewController.renderEditStatusPage);
+router.get('/checkStatus',adminMiddleware,viewController.renderCheckStatusPage)
 
 
 

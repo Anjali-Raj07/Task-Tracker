@@ -75,11 +75,19 @@ const editStatus = async (req, res) => {
         res.status(500).send('Internal Server Error');
     }
 };
-
+const checkTaskStatus = async (req, res) => {
+    try {
+        const { todoTasks, pendingTasks, completedTasks } = await taskService.getTasksByStatus();
+        res.render('checkStatus', { todoTasks, pendingTasks, completedTasks });
+    } catch (error) {
+        res.status(500).send('Error fetching tasks');
+    }
+};
 
 module.exports = {
     createNewTask,
     updateTask,
     deleteTask,
-    editStatus
+    editStatus,
+    checkTaskStatus
 };

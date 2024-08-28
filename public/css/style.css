@@ -297,3 +297,38 @@ main {
     gap: 10px;
     padding: 40px;
 }
+.checkStatusPage {
+    padding: 20px;
+}
+
+.statusColumns {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+}
+
+.statusColumn {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+}
+
+.statusColumn h2 {
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.taskCard {
+    background: #f9f9f9;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.taskCard p {
+    margin: 15px 0;
+}

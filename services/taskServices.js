@@ -66,12 +66,26 @@ const updateTaskStatus = async (taskId, status) => {
         throw new Error(error.message);
     }
 };
+const getTasksByStatus = async () => {
+    try {
+        const tasks = await Task.find({});
+
+        const todoTasks = tasks.filter(task => task.status === 'To Do');
+        const pendingTasks = tasks.filter(task => task.status === 'Pending');
+        const completedTasks = tasks.filter(task => task.status === 'Completed');
+
+        return { todoTasks, pendingTasks, completedTasks };
+    } catch (error) {
+        throw new Error('Error fetching tasks by status');
+    }
+};
 
 
 module.exports = {
     createTask,
     updateTask,
     deleteTask,
-    updateTaskStatus
+    updateTaskStatus,
+    getTasksByStatus
 };
 
