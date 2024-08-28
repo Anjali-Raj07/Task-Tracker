@@ -124,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (response.ok) {
                     alert('Status updated successfully!');
 
-                    window.location.href = `/employee/${userId}`; // Redirect to the user's page
+                    window.location.href = `/employee/${userId}`; 
                 } else {
                     const error = await response.text();
                     alert(`Error: ${error}`);

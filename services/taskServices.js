@@ -28,16 +28,16 @@ const updateTask = async (taskId, { title, description, taskDate, assignTo, task
 
 
         const date = new Date(taskDate);
-        if (isNaN(date.getTime())) { // Check if date is invalid
+        if (isNaN(date.getTime())) {
             throw new Error('Invalid taskDate');
         }
 
         return await Task.findByIdAndUpdate(taskId, {
             title,
             description,
-            date, // Use the parsed date directly
+            date,
             assignedTo: assignTo,
-            status: taskStatus // Ensure status is correctly updated
+            status: taskStatus 
         }, { new: true });
     } catch (err) {
         console.error('Error updating task in task service:', err);
@@ -53,10 +53,10 @@ const deleteTask = async (taskId) => {
         console.error('Error deleting task in task service:', err);
         throw err;
     }
-};// New function to get all tasks
+};
 const getAllTasks = async () => {
     try {
-        return await Task.find(); // Retrieve all tasks
+        return await Task.find(); 
     } catch (err) {
         console.error('Error fetching tasks in task service:', err);
         throw err;
