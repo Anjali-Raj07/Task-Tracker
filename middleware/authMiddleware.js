@@ -26,7 +26,7 @@ const adminMiddleware = (req, res, next) => {
 
         }
     } catch (err) {
-        res.redirect('/login');  // Redirect on token error
+        res.redirect('/login');  
 
     }
 };

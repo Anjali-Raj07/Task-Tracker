@@ -36,8 +36,7 @@ const renderEmployeePage = async (req, res) => {
 
 
         const tasks = await Task.find({ assignedTo: userId })
-        .populate('createdBy', 'username'); // Populate the createdBy field
-
+        .populate('createdBy', 'username'); 
         
         res.render('employee', { tasks,userRole,username });
 

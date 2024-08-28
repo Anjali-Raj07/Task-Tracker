@@ -167,7 +167,7 @@ button[type="submit"]:hover {
     flex-wrap: wrap;
     gap: 20px;
     padding: 20px;
-    justify-content: center; /* Center the cards horizontally */
+    justify-content: center; 
 }
 
 .taskCard {
@@ -175,7 +175,7 @@ button[type="submit"]:hover {
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
-    width: 300px; /* Adjust width as needed */
+    width: 300px; 
     margin-bottom: 20px;
     /* transition: transform 0.2s ease, box-shadow 0.2s ease; */
 }
